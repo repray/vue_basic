@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript DOM操作</title>
+</head>
+
+<body>
+
+    <div id="box1">这是一个id选择器标签</div>
+    <div class="box2">这是一个类选择器标签</div>
+    <div>普通的div</div>
+    <button>点击按钮</button>
+    <script>
+        let element_id = document.getElementById('box1');
+        console.log(element_id);
+        let element_class = document.getElementsByClassName('box2')[0];
+        console.log(element_class);
+        let element_tag = document.getElementsByTagName('div')[2];
+        console.log(element_tag);
+
+        element_id.innerHTML = "修改id选择器标签内容";
+
+        element_class.innerText = "修改类选择器标签内容";
+
+        element_tag.style.color = 'green'
+
+        var button_event = document.getElementsByTagName('button')[0];
+        console.log(button_event);
+        // button_event.onclick = function(){
+        //     alert("点击事件触发");
+        // }
+
+        button_event.addEventListener('click', click_enent);
+
+        function click_enent(){
+            alert("点击事件触发");
+
+        }
+
+    </script>
+</body>
+
+</html>
