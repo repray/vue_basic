@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript事件</title>
+</head>
+<body>
+    <button onclick="onclick_event()">这是一个点击事件</button>
+    <input type="text" name="" id="" onfocus="focus_event()" onblur="onblur_event()">
+</body>
+<script>
+    function onclick_event(){
+        alert("点击事件触发")
+    }
+    function focus_event(){
+        console.log("聚焦事件触发")
+
+    }
+    function onblur_event(){
+        console.log("失焦事件触发")
+
+    }
+</script>
+</html>
