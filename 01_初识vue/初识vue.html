@@ -4,23 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>初识vue</title>
-    <!-- 引入vue -->
+    <!-- 引入vue
+    1.想让vue工作,就必须创建一个vue实例,切要传入一个配置对象
+    2.vue容器里的代码依然符合html规范,只是加入了一些特殊的vue语法
+    3.root容器里的代码被称为[vue模板]
+    -->
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 
 <body>
     <!-- 准备好一个容器 -->
     <div id="root">
-        <h1>hello vue</h1>
+        <h1>hello {{name}}</h1>
+    </div>
+    <div id="root2">
+        <h1>hello {{name}}</h1>
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false
         
         //创建vue实例
-        const x = new Vue({
-            el:'#root' //el用于指定当前vue实例为哪个容器服务,值通常为css选择器字符串
+        new Vue({
+            el:'#root', //el用于指定当前vue实例为哪个容器服务,值通常为css选择器字符串
+            data:{
+                //data中用于存储数据,数据供el所指定的容器去使用
+                name:'liang-praye'
+            }
         })
-        
+        new Vue({
+            el:'#root', //el用于指定当前vue实例为哪个容器服务,值通常为css选择器字符串
+            data:{
+                //data中用于存储数据,数据供el所指定的容器去使用
+                name:'txvo'
+            }
+        })
     </script>
 </body>
 
