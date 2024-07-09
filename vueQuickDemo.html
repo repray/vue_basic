@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>原始内容 {{ title }} 原始内容</p>
+        <p>{{ content }}</p>
+        <!-- <p>{{output()}}</p>
+        <p>{{output()}}</p>
+        <p>{{output()}}</p>
+        <p>{{computedOutput}}</p>
+        <p>{{computedOutput}}</p>
+        <p>{{computedOutput}}</p> -->
+
+        <!-- 会覆盖标签内容 -->
+        <p v-text="htmlContent">123123</p>
+        <p v-html="htmlContent">456546</p>
+
+        <!-- 渲染指令 -->
+        <!-- v-for -->
+        <!-- item是值， key是键，index是索引 -->
+        <p v-for="(item,key,index) in arr">这是内容{{item}},{{key}},{{index}}</p>
+
+        <p v-if="bool">v-if 标签内容true</p>
+
+        <p v-if="bool">v-if 标签内容false</p>
+
+        <p v-show="bool">v-show 标签内容true</p>
+        <!-- 属性指令 -->
+        <!-- v-bind:可以直接简写为: -->
+        <p v-bind:title="content">内容</p>
+
+        <!-- 事件指令 -->
+        <!-- <button v-on:click="output">按钮</button> -->
+        <!-- v-on:可简写为@ -->
+        <button @click="output">按钮</button><br>
+
+        <!-- 表单指令 v-model可以实现双向绑定-->
+        <input type="text" name="" id="" v-model="inputValue">
+        <p v-text="inputValue"></p>
+
+        <!-- 修饰符 -->
+        <input type="text" name="" id="" v-model.trim="inputValue">
+
+    </div>
+    <script src="/js/vue.min.js"></script>
+    <script>
+        //1.响应式数据和插值表达式
+        // 固定写法
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    title: '这是标题文本',
+                    content: '这是内容文本',
+                    htmlContent: '这是一个<span> span标签</span>',
+                    arr: ['A', 'B', 'C', 'D'],
+                    bool: true,
+                    inputValue: '测试数据输出'
+
+                }
+            },
+            //methods属性 与data平级
+            methods: {
+                output() {
+                    console.log('method执行了')
+                    return 'methods 输出标题为' + this.title + ',内容为' + this.content;
+                }
+            },
+            computed: {
+                computedOutput() {
+                    console.log('computed执行了')
+                    return 'computed 标题为' + this.title + ',内容为' + this.content;
+                }
+            },
+            watch: {
+                title(newValue, oldValue) {
+                    console.log(newValue, oldValue)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
